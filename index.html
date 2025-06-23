@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PACHA DISCOTECA</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap" rel="stylesheet">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</head>
+<body>
+
+     
+  <div class="franja-con-header">
+  <div class="franja-inferior"></div>
+  <img src="file_00000000ab2861fa8a7a0c8c72d7d708-removebg-preview.png" alt="Encabezado" class="header-image">
+  </div>
+        <div class="container">
+            <div class="area pacha">
+                <div class="mesas" id="pacha-container"></div>
+                <div class="label">pacha</div>
+            </div>
+            <div class="area lounge">
+                <div class="stickers" id="lounge-container"></div>
+                <div class="label">lounge</div>
+            </div>
+
+
+            <div class="area parrales">
+                <div class="mesas" id="parrales-container"></div>
+                <div class="label">parrales</div>
+        </div>
+
+        <div class="area cholet">
+            <div class="stickers" id="cholet-container"></div>
+            <div class="label">cholet</div>
+        </div>
+            <div class="area Vip">
+                <div class="stickers" id="Vip-container"></div>
+                <div class="label">Vip</div>
+
+        </div>
+
+        <div class="area extras">
+            <div class="stickers" id="extras-container"></div>
+            <div class="label">extras</div>
+        </div>
+
+
+            <div class="area camel">
+                <div class="stickers" id="camel-container"></div>
+                <div class="label">camel</div>
+        </div>
+
+        <div id="top-left-sticker">
+            <img src="generated_text.png" alt="menu" />
+        </div>
+
+        <div id="side-menu" class="side-menu">
+            <img src="file_00000000ab2861fa8a7a0c8c72d7d708-removebg-preview.png" alt="Menú" style="width: 50%; height: auto;">
+            <ul>
+                <li id="opcion-1">
+                    <img src="https://img.icons8.com/?size=100&id=iORA4BtixXZa&format=png&color=000000" alt="Ícono de mesa" style="width: 45px; height: 45px; vertical-align: middle;">
+                    Registro de mesas
+                </li>
+
+                  <li id="ver-ganancias">
+                     <img src="https://img.icons8.com/?size=100&id=k2kXKAbLPPjR&format=png&color=000000" alt="Ver ganancias netas" style="width: 45px; height: 45px; vertical-align: middle;">
+                     GANANCIAS NETAS
+                  </li>
+
+            </ul>
+        </div>
+
+       <!-- Modal para mostrar detalles -->
+       <div id="modal" class="modal">
+           <div class="modal-content">
+               <span id="close-modal" class="close">&times;</span>
+               <h3 id="total-nombre-title" style="display: none;">RESUMEN DE CUENTAS</h3>
+               <table class="table" id="nombre-table">
+                   <thead>
+                       <tr>
+                           <th>Cuenta</th>
+                           <th>Monto Depositado (bs)</th>
+                       </tr>
+                   </thead>
+                   <tbody id="total-nombre-container"></tbody>
+               </table>
+
+               <div id="count-container"></div>
+               <div id="total-container"></div>
+           </div>
+       </div>
+
+            <!-- Modal para mostrar los detalles de las ganancias -->
+            <div id="modal-ganancias" class="modal">
+               <div class="modal-content">
+                   <span id="close-ganancias-modal" class="close">&times;</span>
+                   <h3>TOTAL DE INGRESOS NETOS POR VENTAS DE MESAS</h3>
+                   <p><a href=" https://jeripacha.github.io/respaldo-de-mesas-jeri/"target="_blank" style="color: yellow;">Ver los registros de mesas</a></p>
+                    <div id="ganancias-container"></div>
+               </div>
+            </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
