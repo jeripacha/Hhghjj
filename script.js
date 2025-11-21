@@ -553,3 +553,77 @@ document.getElementById("download-pdf-btn").addEventListener("click", () => {
         doc.save("Reporte_TAMPICO_PACHA.pdf");
     };
 });
+// =========================
+//   PDF CONTEO + PEDIDOS
+// =========================
+
+document.getElementById("btn-pdf-conteo").addEventListener("click", () => {
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF("p", "mm", "a4");
+
+    const logo = new Image();
+    logo.src = "1763002036643.png";
+
+    const now = new Date();
+    const fecha = now.toLocaleDateString("es-ES");
+    const hora = now.toLocaleTimeString("es-ES");
+
+    logo.onload = () => {
+
+        // Header
+        doc.addImage(logo, "PNG", 10, 10, 40, 40);
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(22);
+        doc.text("PACHA SUNSET", 60, 25);
+
+        doc.setFontSize(12);
+        doc.setFont("helvetica", "normal");
+        doc.text(`Fecha: ${fecha}   Hora: ${hora}`, 60, 35);
+
+
+        // ============================
+        //   SUMAR CONTEO + PEDIDOS
+        // ============================
+
+        const total = {};
+
+        // --- Conteo Inicial ---
+        document.querySelectorAll("#conteo-body tr").forEach(tr => {
+            const prod = tr.children[0].textContent.trim();
+            const cant = parseFloat(tr.children[1]?.textContent.trim()) || 0;
+
+            if (!total[prod]) total[prod] = 0;
+            total[prod] += cant;
+        });
+
+        // --- Pedidos Nuevos ---
+        document.querySelectorAll("#pedidos-body tr").forEach(tr => {
+            const prod = tr.children[0].textContent.trim();
+            const cant = parseFloat(tr.children[1]?.textContent.trim()) || 0;
+
+            if (!total[prod]) total[prod] = 0;
+            total[prod] += cant;
+        });
+
+        // Convertir objeto → tabla
+        const rows = Object.keys(total).map(prod => [
+            prod,
+            total[prod]
+        ]);
+
+        // ============================
+        //        TABLA PDF
+        // ============================
+        doc.autoTable({
+            startY: 55,
+            head: [["Producto", "Cantidad Total (Inicial + Pedidos)"]],
+            body: rows,
+            styles: { fontSize: 13, cellPadding: 4, halign: "center" },
+            headStyles: { fillColor: [0, 0, 0], textColor: [255, 255, 255] }
+        });
+
+        doc.save("Conteo_Inicial_Completo_PACHA.pdf");
+    };
+
+});
