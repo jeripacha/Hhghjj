@@ -23,7 +23,6 @@ const cuadrarBtn = document.createElement("button");
 cuadrarBtn.textContent = "Cuadrar Productos";
 cuadrarBtn.classList.add("add-product-btn");
 document.getElementById("panel").appendChild(cuadrarBtn);
-
 // =========================
 //     LOGIN FUNCIONAL
 // =========================
@@ -68,12 +67,32 @@ navItems.forEach((item, index) => {
 // =========================
 //        CERRAR MODALES
 // =========================
+// =========================
+//        CERRAR MODALES
+// =========================
 closeBtn.forEach(btn => {
-    btn.addEventListener("click", () => Object.values(modals).forEach(m => m.style.display = "none"));
+    btn.addEventListener("click", () => {
+        Object.values(modals).forEach(m => {
+            m.style.display = "none";
+
+            // Cerrar todos los selects dentro del modal
+            m.querySelectorAll(".select-options").forEach(select => {
+                select.style.display = "none";
+            });
+        });
+    });
 });
+
 window.onclick = function(event) {
     if (Object.values(modals).includes(event.target)) {
-        Object.values(modals).forEach(m => m.style.display = "none");
+        Object.values(modals).forEach(m => {
+            m.style.display = "none";
+
+            // Cerrar todos los selects dentro del modal
+            m.querySelectorAll(".select-options").forEach(select => {
+                select.style.display = "none";
+            });
+        });
     }
 };
 
@@ -85,21 +104,53 @@ function getListaProductos() {
     return [...conteo].map(td => td.textContent.trim());
 }
 
-function crearSelectProductos(valorSeleccionado="") {
+function crearSelectProductos(valorSeleccionado = "") {
     const productos = getListaProductos();
-    const select = document.createElement("select");
 
+    const wrapper = document.createElement("div");
+    wrapper.className = "select-wrapper";
+
+    const display = document.createElement("div");
+    display.className = "select-display";
+    display.textContent = valorSeleccionado || "Seleccionar producto";
+
+    const opciones = document.createElement("div");
+    opciones.className = "select-options";
+
+    // Opciones
     productos.forEach(prod => {
-        const option = document.createElement("option");
-        option.value = prod;
-        option.textContent = prod;
+        const opt = document.createElement("div");
+        opt.className = "select-option";
+        opt.textContent = prod;
 
-        if(prod === valorSeleccionado) option.selected = true;
+        opt.onclick = () => {
+            display.textContent = prod;
+            wrapper.value = prod;
+            opciones.style.display = "none";
+            wrapper.dispatchEvent(new Event("change"));
+        };
 
-        select.appendChild(option);
+        opciones.appendChild(opt);
     });
 
-    return select;
+    // Toggle: abrir o cerrar select al hacer clic
+    display.onclick = (e) => {
+        e.stopPropagation();
+        opciones.style.display = opciones.style.display === "block" ? "none" : "block";
+    };
+
+    // Cerrar select si se hace clic fuera
+    document.addEventListener("click", (e) => {
+        if (!wrapper.contains(e.target)) {
+            opciones.style.display = "none";
+        }
+    });
+
+    wrapper.appendChild(display);
+    wrapper.appendChild(opciones);
+    wrapper.value = valorSeleccionado;
+
+    return wrapper;
 }
 
 function createRow(cells, editable=true) {
@@ -111,6 +162,15 @@ function createRow(cells, editable=true) {
         row.appendChild(td);
     });
     return row;
+}
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2000); // 5 segundos
 }
 
 // =========================
@@ -235,7 +295,7 @@ function saveArea(areaId) {
     const rows = [...tbody.querySelectorAll("tr")].map(tr => {
         const tds = tr.querySelectorAll("td");
         return [...tds].map(td => {
-            const select = td.querySelector("select");
+            const select = td.querySelector(".select-wrapper");
             if(select) return select.value;
             return td.textContent;
         });
@@ -304,7 +364,8 @@ saveAllBtn.addEventListener("click", () => {
         "final-pacena","final-monster","final-schweppes","final-deposito","final-lavaplatos"
     ];
     allAreas.forEach(areaId => saveArea(areaId));
-    alert("¡Todos los datos se han guardado!");
+    showToast("💾 Datos guardados exitosamente");
+
 });
 
 cuadrarBtn.addEventListener("click", () => {
@@ -458,7 +519,7 @@ document.getElementById("reset-all-btn").addEventListener("click", () => {
         }
     });
 
-    alert("¡Todo se ha reiniciado y las tablas están vacías!");
+    showToast("✔ Todo se ha reiniciado correctamente");
 });
 // =========================
 //   GENERAR PDF DEL CUADRE
@@ -550,7 +611,7 @@ document.getElementById("download-pdf-btn").addEventListener("click", () => {
             }
         });
 
-        doc.save("Reporte_TAMPICO_PACHA.pdf");
+        doc.save("Reporte_producto_PACHA.pdf");
     };
 });
 // =========================
@@ -626,4 +687,23 @@ document.getElementById("btn-pdf-conteo").addEventListener("click", () => {
         doc.save("Conteo_Inicial_Completo_PACHA.pdf");
     };
 
+});
+// BOTÓN GUARDAR
+document.getElementById("btn-guardar").addEventListener("click", () => {
+    showToast("💾 Datos guardados correctamente");
+    // aquí va tu lógica de guardar
+});
+
+// BOTÓN CUADRAR
+document.getElementById("btn-cuadrar").addEventListener("click", () => {
+    showToast("📊 Generando Cuadre...");
+    // aquí puedes llamar tu función del modal de cuadre
+});
+
+// BOTÓN RESETEAR
+document.getElementById("btn-reset").addEventListener("click", () => {
+    if (confirm("¿Seguro deseas reiniciar todos los datos?")) {
+        showToast("♻ Datos reiniciados");
+        // aquí va tu función de reinicio
+    }
 });
