@@ -74,7 +74,7 @@ header {
 }
 
 .nav-item:hover {
-  color: #ffffff;
+  color: #00c6ff; /* azul neón */
 }
 
 .nav-item span {
@@ -96,19 +96,19 @@ main {
 }
 
 /* ========================= */
-/* Línea naranja fija abajo del encabezado */
-/* ========================= */
+/* Línea azul neón fija abajo del encabezado */
 .active-line {
   position: absolute;
   bottom: 0; /* 👈 pegada al borde inferior del header */
   left: 0;
   height: 3px;
   width: 0;
-  background-color: #ff8c00;
+  background-color: #00c6ff; /* azul neón */
   border-radius: 2px;
   transition: all 0.3s ease;
 }
-/* ==== LOGIN AZUL MARINO + NARANJA ==== */
+
+/* ==== LOGIN AZUL MARINO + NEÓN ==== */
 .login-blue {
   position: fixed;
   inset: 0;
@@ -125,12 +125,12 @@ main {
   border-radius: 15px;
   width: 320px;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 198, 255, 0.3); /* azul neón */
 }
 
 .login-title {
   text-align: center;
-  color: white;
+  color: #00c6ff; /* azul neón */
   margin-bottom: 25px;
   font-size: 26px;
   font-weight: bold;
@@ -155,7 +155,7 @@ main {
 }
 
 .input-group input:focus {
-  border-bottom: 2px solid #ff7b00;     /* Naranja */
+  border-bottom: 2px solid #00c6ff;     /* azul neón */
 }
 
 .input-group label {
@@ -172,13 +172,13 @@ main {
 .input-group input:not(:placeholder-shown) + label {
   bottom: 35px;
   font-size: 12px;
-  color: #ff7b00;
+  color: #00c6ff; /* azul neón */
 }
 
 .btn-login {
   width: 100%;
   padding: 12px;
-  background: #ff7b00;
+  background: #00c6ff; /* azul neón */
   border: none;
   border-radius: 8px;
   color: #0a1a2a;
@@ -189,7 +189,7 @@ main {
 }
 
 .btn-login:hover {
-  background: #ffa040;
+  background: #0072ff; /* azul neón oscuro */
 }
 
 .error-message {
@@ -197,7 +197,6 @@ main {
   text-align: center;
   margin-top: 10px;
 }
-/* Modal Styles */
 
 /* Modal Styles */
 .modal {
@@ -211,8 +210,8 @@ main {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
-  overflow-y: auto; /* Permite el desplazamiento si el contenido es demasiado largo */
-  max-height: 90%; /* Establece un tamaño máximo para el modal */
+  overflow-y: auto; 
+  max-height: 90%;
 }
 
 .modal-content {
@@ -221,9 +220,9 @@ main {
   border-radius: 10px;
   width: 70%;
   max-width: 900px;
-  max-height: 80vh; /* Limita la altura del modal */
+  max-height: 80vh;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  overflow-y: auto; /* Permite el desplazamiento dentro del modal */
+  overflow-y: auto; 
   animation: modal-animation 0.5s ease-in-out;
 }
 
@@ -241,7 +240,7 @@ main {
 .close-btn {
   font-size: 30px;
   font-weight: bold;
-  color: #333;
+  color: #00c6ff; /* azul neón */
   position: absolute;
   top: 10px;
   right: 10px;
@@ -250,8 +249,8 @@ main {
 
 /* Contenedor de la tabla para permitir desplazamiento */
 .table-container {
-  max-height: 500px; /* Establece una altura máxima para la tabla */
-  overflow-y: auto; /* Desplazamiento vertical */
+  max-height: 500px;
+  overflow-y: auto; 
   margin-top: 20px;
 }
 
@@ -271,18 +270,18 @@ main {
 }
 
 .modal-table th {
-  background-color: #eb6a00;
+  background-color: #00c6ff; /* azul neón */
   color: white;
 }
 
 /* Eliminamos el efecto de hover */
 .modal-table tr:hover {
-  background-color: transparent; /* No cambia el color al pasar el mouse */
+  background-color: transparent; 
 }
 
 /* Estilo para el contenido del panel */
 .nav-item.active {
-  color: #eb6a00;
+  color: #00c6ff; /* azul neón */
   font-weight: bold;
 }
 
@@ -295,16 +294,17 @@ main {
 /* Opcional: Personalizar la línea activa del menú */
 .active-line {
   height: 3px;
-  background-color: #eb6a00;
+  background-color: #00c6ff; /* azul neón */
   width: 0;
   position: absolute;
   bottom: 0;
   transition: width 0.3s ease, left 0.3s ease;
 }
+
 /* Estilo del botón "Añadir Producto" */
 .add-product-btn {
   display: inline-block;
-  background-color: #4CAF50; /* Verde bonito */
+  background-color: #00c6ff; /* azul neón */
   color: white;
   font-size: 16px;
   padding: 12px 20px;
@@ -317,17 +317,17 @@ main {
 }
 
 .add-product-btn:hover {
-  background-color: #45a049; /* Color más oscuro al pasar el ratón */
-  transform: translateY(-2px); /* Efecto de elevación */
+  background-color: #0072ff; /* azul neón oscuro */
+  transform: translateY(-2px);
 }
 
 .add-product-btn:active {
-  background-color: #388e3c; /* Aún más oscuro cuando se presiona */
-  transform: translateY(1px); /* Efecto de presionar */
+  background-color: #005bb5; /* azul neón más oscuro */
+  transform: translateY(1px);
 }
 
 .add-product-btn:focus {
-  outline: none; /* Eliminar el borde azul de enfoque */
+  outline: none; 
 }
 
 /* Estilo de las tablas para darles un buen espaciado */
@@ -344,7 +344,7 @@ main {
 }
 
 .modal-table th {
-  background-color: #f4f4f4;
+  background-color: #00c6ff; /* azul neón */
   color: #333;
 }
 
@@ -360,6 +360,7 @@ td[contenteditable="true"]:focus {
   background-color: #eef;
   border-color: #aaa;
 }
+
 /* Estilo para las tablas de las áreas */
 .area-table th, .area-table td {
   padding: 12px;
@@ -369,32 +370,32 @@ td[contenteditable="true"]:focus {
 }
 
 .area-table th {
-  background-color: #bdbdbd;
+  background-color: #00c6ff; /* azul neón */
   color: white;
 }
 
 .area-table td {
-  background-color: #f5f5f5; /* Cambié el fondo para las celdas */
+  background-color: #f5f5f5; 
 }
 
 .area-table td[contenteditable="true"]:focus {
-  background-color: #eef; /* Resaltar cuando una celda editable está en foco */
+  background-color: #eef; 
   border-color: #aaa;
 }
 
 .add-product-btn {
-  background-color: #4CAF50; /* Fondo verde */
+  background: #00c6ff; /* azul neón */
   color: white;
   padding: 12px 20px;
   border-radius: 5px;
 }
 
 .add-product-btn:hover {
-  background-color: #45a049;
+  background-color: #0072ff;
 }
 
 .add-product-btn:active {
-  background-color: #388e3c;
+  background-color: #005bb5;
 }
 
 /* Opcional: Agregar un borde o un color especial para los productos añadidos */
@@ -402,4 +403,178 @@ td[contenteditable="true"]:focus {
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   text-align: center;
+}
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.8); /* empieza más pequeño */
+  background: #00c6ff; 
+  color: black;
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  opacity: 0;
+  z-index: 9999;
+  pointer-events: none;
+  animation: none; /* no animación al inicio */
+}
+
+.toast.show {
+  opacity: 1;
+  animation: toast-bounce 0.6s ease forwards; /* animación de rebote */
+}
+
+@keyframes toast-bounce {
+  0% {
+    transform: translateX(-50%) translateY(-30px) scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px) scale(1.05);
+    opacity: 1;
+  }
+  70% {
+    transform: translateX(-50%) translateY(-5px) scale(0.98);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+
+
+
+.select-wrapper {
+  position: relative;
+  width: auto;       /* No ocupa todo el ancho */
+  max-width: 200px;  /* Ajusta según quieras */
+}
+
+.select-display {
+width: 100%;
+padding: 10px;
+background: linear-gradient(90deg, #00c6ff, #0072ff);  /* degradado neón */
+color: white;
+border-radius: 10px;
+font-weight: bold;
+text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+cursor: pointer;
+font-size: 14px;
+border: 1px solid #0072ff;
+text-align: left;
+}
+
+/* Estilo general (PC / laptop) */
+.select-options {
+  display: none;
+  position: absolute;
+  top: 105%;
+  left: 0;
+  width: 100%;
+  max-height: 200px;          /* compacto con scroll interno */
+  overflow-y: auto;
+  z-index: 9999;
+  background: #001f4d;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 114, 255, 0.5);
+}
+
+.select-option {
+  padding: 12px 15px;
+  color: #00f0ff;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(0,255,255,0.2);
+}
+
+.select-option:hover {
+  background: #0074ff;
+  color: white;
+}
+
+/* -------------------------------
+ 🎯 SOLO EN CELULAR
+ Vista fullscreen
+--------------------------------*/
+@media (max-width: 768px) {
+  .select-display {
+      background: transparent; /* transparente */
+      color: black;
+      border: none;             /* quitar borde */
+      -webkit-appearance: none; /* quitar estilo iOS */
+      -moz-appearance: none;    /* quitar estilo Firefox */
+      appearance: none;         /* quitar estilo general */
+      box-shadow: none;         /* quitar sombra por defecto */
+      outline: none;            /* quitar el borde al hacer foco */
+  }
+  .select-options {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: calc(100vw - 2 * var(--margin-lateral, 20px));
+      max-height: calc(100vh - var(--margin-superior, 100px) - var(--margin-inferior, 100px));
+      width: 100%;
+      background: #001f4d;
+      z-index: 999999;
+      overflow-y: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      padding: 20px 10px;
+  }
+
+  .select-option {
+      padding: 16px;
+      font-size: 18px;
+      color: #00f0ff;
+  }
+
+  .select-option:hover {
+      background: #0074ff;
+      color: white;
+  }
+
+  .select-close-btn {
+      display: block;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 8px 12px;
+      background: #00c6ff;
+      color: #001f4d;
+      border-radius: 6px;
+      z-index: 9999999;
+      cursor: pointer;
+  }
+}
+@media (max-width: 768px) {
+
+  /* Cambiamos absolute → fixed */
+  .logo {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;     /* Ajusta esto para bajarlo */
+    top: auto;
+  }
+
+  .logo img {
+    height: 80px;     /* Ajusta tamaño si quieres */
+    width: auto;
+  }
+
+  .company-name {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 110px;    /* 20px + 80px del logo + 10px separación */
+    top: auto;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
 }
